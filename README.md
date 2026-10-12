@@ -100,16 +100,6 @@ src/
 server/
 └── embedded-server.js  # 嵌入式 Node.js 服务器
 
-platforms/
-└── android/         # Cordova Android 项目
-    ├── config.xml   # Cordova 配置
-    ├── www/         # H5 构建输出目录
-    │   └── nodejs-project/  # Node.js 项目
-    │       ├── main.js      # 服务器启动入口
-    │       ├── embedded-server.js
-    │       └── package.json
-    └── package.json # Cordova 依赖
-
 scripts/
 ├── copy-to-cordova.js    # 复制 H5 到 Cordova
 └── build-apk.sh          # APK 构建脚本
