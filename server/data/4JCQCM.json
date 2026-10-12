@@ -1,0 +1,20 @@
+{
+  "code": "4JCQCM",
+  "name": "11",
+  "ownerOpenid": "user_ieqbtbpy6td",
+  "initialBalance": 100,
+  "teaTotal": 0,
+  "teaRecords": [],
+  "fundRecords": [],
+  "members": [
+    {
+      "openid": "user_ieqbtbpy6td",
+      "nickname": "玩家325",
+      "avatar": "",
+      "balance": 100,
+      "isOwner": true,
+      "joinTime": "2026-02-21T07:11:29.302Z"
+    }
+  ],
+  "updateTime": "2026-02-21T07:11:29.302Z"
+}

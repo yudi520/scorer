@@ -1,0 +1,301 @@
+.container {
+  padding: 30rpx;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 120rpx;
+}
+
+.my-info {
+  background: linear-gradient(135deg, #1890ff, #36a3f9);
+  border-radius: 20rpx;
+  padding: 40rpx 30rpx;
+  margin-bottom: 30rpx;
+  color: #fff;
+}
+
+.info-left {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 25rpx;
+  border: 4rpx solid rgba(255, 255, 255, 0.3);
+}
+
+.info-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.nickname {
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.balance {
+  font-size: 28rpx;
+  opacity: 0.9;
+}
+
+.action-cards {
+  display: flex;
+  margin-bottom: 30rpx;
+}
+
+.action-card {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 40rpx 0;
+  text-align: center;
+  margin: 0 10rpx;
+}
+
+.action-card:first-child {
+  margin-left: 0;
+}
+
+.action-card:last-child {
+  margin-right: 0;
+}
+
+.card-icon {
+  display: block;
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.deposit .card-icon {
+  color: #52c41a;
+}
+
+.withdraw .card-icon {
+  color: #ff4d4f;
+}
+
+.card-title {
+  font-size: 30rpx;
+  color: #666;
+}
+
+.records-section {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+}
+
+.section-header {
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.record-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.record-item {
+  padding: 25rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.record-item:last-child {
+  border-bottom: none;
+}
+
+.record-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.record-type {
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.record-type.deposit {
+  color: #52c41a;
+}
+
+.record-type.withdraw {
+  color: #ff4d4f;
+}
+
+.record-amount {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.record-amount.deposit {
+  color: #52c41a;
+}
+
+.record-amount.withdraw {
+  color: #ff4d4f;
+}
+
+.record-meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.record-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.record-note {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.empty-tip {
+  text-align: center;
+  padding: 60rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.modal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 50rpx 40rpx;
+  width: 80%;
+}
+
+.modal-title {
+  display: block;
+  font-size: 34rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.amount-input-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30rpx;
+}
+
+.currency {
+  font-size: 48rpx;
+  color: #333;
+  margin-right: 10rpx;
+}
+
+.amount-display {
+  width: 300rpx;
+  min-height: 86rpx;
+  padding: 10rpx 0;
+  font-size: 60rpx;
+  font-weight: bold;
+  line-height: 66rpx;
+  text-align: center;
+  color: #333;
+  border-bottom: 2rpx solid #e8e8e8;
+}
+
+.preset-amounts {
+  margin-bottom: 30rpx;
+}
+
+.preset-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.preset-row + .preset-row {
+  margin-top: 18rpx;
+}
+
+.preset-item {
+  width: 88rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+  background-color: #f5f5f5;
+  border-radius: 12rpx;
+}
+
+.preset-item.active {
+  color: #fff;
+  background-color: #1890ff;
+}
+
+.note-input {
+  background-color: #f5f5f5;
+  border-radius: 10rpx;
+  padding: 20rpx 25rpx;
+  font-size: 28rpx;
+  margin-bottom: 30rpx;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-cancel,
+.btn-confirm {
+  flex: 1;
+  padding: 22rpx 0;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+}
+
+.btn-cancel {
+  background-color: #f5f5f5;
+  color: #666;
+  margin-right: 20rpx;
+}
+
+.btn-confirm {
+  color: #fff;
+  margin-left: 20rpx;
+}
+
+.btn-confirm.deposit {
+  background-color: #52c41a;
+}
+
+.btn-confirm.withdraw {
+  background-color: #ff4d4f;
+}

@@ -1,0 +1,68 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "计分器",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/server/server",
+      "style": {
+        "navigationBarTitleText": "服务器",
+        "navigationBarBackgroundColor": "#667eea",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/room/create/create",
+      "style": {
+        "navigationBarTitleText": "创建房间",
+        "navigationBarBackgroundColor": "#1890ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/room/room",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "房间",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/fund/fund",
+      "style": {
+        "navigationBarTitleText": "资金管理",
+        "navigationBarBackgroundColor": "#1890ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/tea/tea",
+      "style": {
+        "navigationBarTitleText": "茶水费用",
+        "navigationBarBackgroundColor": "#1890ff",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/settle/settle",
+      "style": {
+        "navigationBarTitleText": "结算",
+        "navigationBarBackgroundColor": "#1890ff",
+        "navigationBarTextStyle": "white"
+      }
+    }
+  ],
+  "globalStyle": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "计分器",
+    "navigationBarTextStyle": "white"
+  }
+}

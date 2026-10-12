@@ -1,0 +1,157 @@
+# 计分器 - 多设备实时同步
+
+基于 uni-app 开发的计分器应用，支持房主用 APP，其他人用浏览器实时同步。
+
+## 功能特性
+
+- **多设备同步**: 房主用 APP，其他人用浏览器直接访问
+- **共享资金池**: 所有人共同操作一个资金池，可以存取任意金额
+- **实时更新**: 所有操作实时同步到所有设备
+- **二维码分享**: 一键生成二维码，其他人扫码即玩
+- **离线兼容**: 支持单机离线使用
+
+## 使用场景
+
+### 场景 1：房主用 APP，其他人用浏览器（推荐）
+
+1. **房主操作**
+   
+   - 打开 APP，进入"服务器设置"
+   - 服务器自动启动，显示二维码
+   - 分享二维码或网址给其他人
+
+2. **其他人操作**
+   
+   - 用浏览器扫描二维码
+   - 或手动输入网址（如 http://192.168.1.100:8080）
+   - 在网页上输入昵称即可加入
+
+### 场景 2：所有人用 APP
+
+- 所有人下载 APP
+- 房主创建房间后分享邀请码
+- 其他人输入邀请码加入
+
+### 场景 3：离线单机使用
+
+- 应用支持完全离线运行
+- 所有数据存储在本地内存中
+
+## 开发调试
+
+### 启动开发环境
+
+```bash
+# 终端 1: 启动 H5 开发服务器
+npm run dev:h5
+
+# 终端 2: 启动嵌入式服务器（模拟）
+npm run server
+
+# 或同时启动两者
+npm run dev:all
+```
+
+访问 http://localhost:8080 查看应用
+
+### 构建 APK
+
+```bash
+# 1. 构建 H5
+npm run build:h5
+
+# 2. 复制到 Cordova
+npm run copy:cordova
+
+# 3. 构建 APK
+cd platforms/android
+cordova build android
+```
+
+### APK 输出位置
+
+```
+platforms/android/app/build/outputs/apk/
+```
+
+## 技术架构
+
+- **前端**: uni-app + Vue 3
+- **后端**: Node.js + WebSocket + HTTP（嵌入在 APK 中）
+- **打包**: Cordova Android
+- **通信**: WebSocket 实时双向通信
+
+## 项目结构
+
+```
+src/
+├── pages/           # 页面
+│   ├── index/       # 首页
+│   ├── server/      # 服务器设置页面
+│   ├── room/        # 房间相关页面
+│   ├── fund/        # 资金管理
+│   ├── tea/         # 茶水费用
+│   └── settle/      # 结算
+├── utils/           # 工具类
+│   ├── localDataService.js  # 本地数据服务
+│   └── socketService.js     # WebSocket 服务
+└── ...
+
+server/
+└── embedded-server.js  # 嵌入式 Node.js 服务器
+
+platforms/
+└── android/         # Cordova Android 项目
+    ├── config.xml   # Cordova 配置
+    ├── www/         # H5 构建输出目录
+    │   └── nodejs-project/  # Node.js 项目
+    │       ├── main.js      # 服务器启动入口
+    │       ├── embedded-server.js
+    │       └── package.json
+    └── package.json # Cordova 依赖
+
+scripts/
+├── copy-to-cordova.js    # 复制 H5 到 Cordova
+└── build-apk.sh          # APK 构建脚本
+```
+
+
+
+## 使用说明
+
+### 房主创建服务器
+
+1. 打开 APP
+2. 点击"服务器设置"按钮
+3. 服务器自动启动
+4. 分享二维码或网址给朋友
+
+### 其他人加入
+
+1. 用浏览器扫描二维码
+2. 或手动输入网址
+3. 输入昵称即可加入
+
+### 管理资金池
+
+1. 进入房间后，点击"资金"标签
+2. 点击"存入资金"或"取出资金"
+3. 输入金额和描述
+4. 所有设备实时更新
+
+### 添加茶水费
+
+1. 进入房间后，点击"茶水"标签
+2. 点击"添加茶水费"
+3. 输入金额和描述
+4. 查看茶水费记录
+
+### 结算
+
+1. 进入房间后，点击"结算"标签
+2. 点击"计算结算"
+3. 查看每个人的应支付金额
+
+## 许可证
+
+MIT

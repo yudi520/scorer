@@ -1,0 +1,71 @@
+<view class="container">
+  <view class="room-header">
+    <view class="room-info">
+      <text class="room-name">{{room.name}}</text>
+      <view class="room-code-wrap" bindtap="copyCode">
+        <text class="room-code">邀请码: {{room.code}}</text>
+        <text class="copy-tip">点击复制</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="member-section">
+    <view class="section-header">
+      <text class="section-title">成员 ({{room.members.length}}人)</text>
+      <text class="add-member" bindtap="showInviteDialog">+ 邀请</text>
+    </view>
+    
+    <view class="member-list">
+      <view class="member-item" wx:for="{{room.members}}" wx:key="openid">
+        <view class="member-info">
+          <image 
+            class="member-avatar" 
+            src="{{item.avatar}}" 
+            mode="aspectFill"
+          />
+          <view class="member-detail">
+            <text class="member-name">
+              {{item.nickname}}
+              <text class="owner-tag" wx:if="{{item.isOwner}}">房主</text>
+            </text>
+            <text class="member-balance">余额: ¥{{item.balance}}</text>
+          </view>
+        </view>
+        <view class="member-actions" wx:if="{{isOwner && !item.isOwner}}">
+          <text class="remove-btn" bindtap="removeMember" data-openid="{{item.openid}}">移除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="stats-section">
+    <view class="stat-item">
+      <text class="stat-label">茶水总费用</text>
+      <text class="stat-value">¥{{room.teaTotal || 0}}</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-label">人均茶水费</text>
+      <text class="stat-value">¥{{teaPerPerson}}</text>
+    </view>
+  </view>
+
+  <view class="action-section">
+    <button class="btn-primary" bindtap="shareRoom">分享房间</button>
+  </view>
+
+  <view class="modal" wx:if="{{showModal}}">
+    <view class="modal-mask" bindtap="hideModal"></view>
+    <view class="modal-content">
+      <text class="modal-title">邀请好友</text>
+      <view class="invite-code">
+        <text class="code-text">{{room.code}}</text>
+      </view>
+      <text class="invite-desc">复制上方邀请码，发送给好友</text>
+      <view class="modal-actions">
+        <button class="btn-copy" bindtap="copyInviteCode">复制邀请码</button>
+      </view>
+    </view>
+  </view>
+
+  <tabbar current="room"></tabbar>
+</view>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>WebSocket 测试</title>
+</head>
+<body>
+  <h1>WebSocket 连接测试</h1>
+  <div id="status">未连接</div>
+  <div id="messages"></div>
+  <br>
+  <button onclick="testJoinRoom()">测试加入房间</button>
+  <input type="text" id="inviteCode" placeholder="邀请码" value="TEST01">
+  <input type="text" id="playerName" placeholder="昵称" value="测试用户">
+
+  <script>
+    let ws = null;
+    const wsUrl = `ws://${window.location.host}`;
+
+    function connect() {
+      document.getElementById('status').textContent = '正在连接...';
+      console.log('尝试连接 WebSocket:', wsUrl);
+
+      ws = new WebSocket(wsUrl);
+
+      ws.onopen = () => {
+        document.getElementById('status').textContent = '已连接';
+        document.getElementById('status').style.color = 'green';
+        console.log('WebSocket 已连接');
+      };
+
+      ws.onmessage = (event) => {
+        console.log('收到消息:', event.data);
+        const data = JSON.parse(event.data);
+        const messages = document.getElementById('messages');
+        messages.innerHTML += `<p><strong>收到:</strong> ${event.data}</p>`;
+      };
+
+      ws.onerror = (error) => {
+        document.getElementById('status').textContent = '连接错误';
+        document.getElementById('status').style.color = 'red';
+        console.error('WebSocket 错误:', error);
+      };
+
+      ws.onclose = () => {
+        document.getElementById('status').textContent = '已断开';
+        document.getElementById('status').style.color = 'orange';
+        console.log('WebSocket 已断开');
+      };
+    }
+
+    function testJoinRoom() {
+      if (!ws || ws.readyState !== WebSocket.OPEN) {
+        alert('WebSocket 未连接');
+        return;
+      }
+
+      const inviteCode = document.getElementById('inviteCode').value;
+      const playerName = document.getElementById('playerName').value;
+
+      const message = {
+        type: 'joinRoom',
+        data: {
+          inviteCode: inviteCode,
+          playerName: playerName
+        }
+      };
+
+      const messageStr = JSON.stringify(message);
+      console.log('发送消息:', messageStr);
+      ws.send(messageStr);
+
+      const messages = document.getElementById('messages');
+      messages.innerHTML += `<p><strong>发送:</strong> ${messageStr}</p>`;
+    }
+
+    // 页面加载时自动连接
+    connect();
+  </script>
+</body>
+</html>

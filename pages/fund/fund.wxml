@@ -1,0 +1,85 @@
+<view class="container">
+  <view class="my-info">
+    <view class="info-left">
+      <image
+        class="avatar"
+        src="{{currentUser.avatar}}"
+        mode="aspectFill"
+      />
+      <view class="info-detail">
+        <text class="nickname">{{currentUser.nickname}}</text>
+        <text class="balance">当前余额: ¥{{currentUser.balance}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="action-cards">
+    <view class="action-card deposit" bindtap="showDepositModal">
+      <text class="card-icon">+</text>
+      <text class="card-title">转入</text>
+    </view>
+    <view class="action-card withdraw" bindtap="showWithdrawModal">
+      <text class="card-icon">-</text>
+      <text class="card-title">转出</text>
+    </view>
+  </view>
+
+  <view class="records-section">
+    <view class="section-header">
+      <text class="section-title">资金记录</text>
+    </view>
+
+    <view class="record-list" wx:if="{{records.length > 0}}">
+      <view class="record-item" wx:for="{{records}}" wx:key="index">
+        <view class="record-info">
+          <text class="record-type {{item.type}}">{{item.type === 'deposit' ? '转入' : '转出'}}</text>
+          <text class="record-amount {{item.type}}">{{item.type === 'deposit' ? '+' : '-'}}¥{{item.amount}}</text>
+        </view>
+        <view class="record-meta">
+          <text class="record-time">{{item.time}}</text>
+          <text class="record-note" wx:if="{{item.note}}">{{item.note}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="empty-tip" wx:else>
+      <text>暂无资金记录</text>
+    </view>
+  </view>
+
+  <view class="modal" wx:if="{{showModal}}">
+    <view class="modal-mask" bindtap="hideModal"></view>
+    <view class="modal-content">
+      <text class="modal-title">{{modalType === 'deposit' ? '转入金额' : '转出金额'}}</text>
+      <view class="amount-input-wrap">
+        <text class="currency">¥</text>
+        <view class="amount-display">{{amount || '请选择金额'}}</view>
+      </view>
+      <view class="preset-amounts">
+        <view class="preset-row" wx:for="{{presetAmountRows}}" wx:for-item="row" wx:key="index">
+          <view
+            class="preset-item {{amount === item ? 'active' : ''}}"
+            wx:for="{{row}}"
+            wx:key="*this"
+            data-amount="{{item}}"
+            bindtap="selectAmount"
+          >
+            {{item}}
+          </view>
+        </view>
+      </view>
+      <input
+        class="input-field note-input"
+        placeholder="备注（可选）"
+        maxlength="50"
+        bindinput="onNoteInput"
+        value="{{note}}"
+      />
+      <view class="modal-actions">
+        <button class="btn-cancel" bindtap="hideModal">取消</button>
+        <button class="btn-confirm {{modalType}}" bindtap="confirmAction">确定</button>
+      </view>
+    </view>
+  </view>
+
+  <tabbar current="fund"></tabbar>
+</view>

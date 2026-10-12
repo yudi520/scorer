@@ -1,0 +1,20 @@
+{
+  "code": "DCHUAY",
+  "name": "1",
+  "ownerOpenid": "user_wcyyh5tzqv",
+  "initialBalance": 100,
+  "teaTotal": 0,
+  "teaRecords": [],
+  "fundRecords": [],
+  "members": [
+    {
+      "openid": "user_wcyyh5tzqv",
+      "nickname": "玩家933",
+      "avatar": "",
+      "balance": 100,
+      "isOwner": true,
+      "joinTime": "2026-02-21T07:04:44.764Z"
+    }
+  ],
+  "updateTime": "2026-02-21T07:04:44.764Z"
+}

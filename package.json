@@ -1,0 +1,32 @@
+{
+  "name": "scorer-h5",
+  "version": "1.0.0",
+  "description": "计分器 H5 应用",
+  "main": "main.js",
+  "scripts": {
+    "build:h5": "vite build --mode h5",
+    "dev:h5": "vite --mode h5",
+    "dev:embedded": "node scripts/dev-embedded.js",
+    "start": "node scripts/start-server.js",
+    "build:mp-weixin": "uni build --platform mp-weixin",
+    "dev:mp-weixin": "uni --platform mp-weixin",
+    "server": "node server/embedded-server.js",
+    "dev:all": "concurrently \"npm run dev:h5\" \"npm run server\"",
+    "copy:cordova": "node scripts/copy-to-cordova.js",
+    "build:apk": "bash scripts/build-apk.sh"
+  },
+  "dependencies": {
+    "@dcloudio/uni-app": "3.0.0-alpha-5000120260211001",
+    "@dcloudio/uni-h5": "3.0.0-alpha-5000120260211001",
+    "qrcode": "^1.5.4",
+    "vue": "^3.5.13",
+    "ws": "^8.19.0"
+  },
+  "devDependencies": {
+    "@dcloudio/vite-plugin-uni": "3.0.0-alpha-5000120260211001",
+    "sass": "^1.97.3",
+    "vite": "5.2.8"
+  },
+  "author": "",
+  "license": "MIT"
+}

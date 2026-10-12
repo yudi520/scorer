@@ -1,0 +1,20 @@
+{
+  "code": "HB5SMY",
+  "name": "11",
+  "ownerOpenid": "user_wcyyh5tzqv",
+  "initialBalance": 100,
+  "teaTotal": 0,
+  "teaRecords": [],
+  "fundRecords": [],
+  "members": [
+    {
+      "openid": "user_wcyyh5tzqv",
+      "nickname": "玩家933",
+      "avatar": "",
+      "balance": 100,
+      "isOwner": true,
+      "joinTime": "2026-02-21T06:46:17.108Z"
+    }
+  ],
+  "updateTime": "2026-02-21T06:46:17.108Z"
+}

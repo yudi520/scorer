@@ -1,0 +1,59 @@
+<view class="container">
+  <view class="connection-status" wx:if="{{!isConnected}}">
+    <text class="status-text">正在连接服务器...</text>
+  </view>
+  
+  <view class="header">
+    <text class="title">计分器</text>
+    <text class="subtitle">轻松管理房间账目</text>
+  </view>
+
+  <view class="action-section">
+    <button class="btn-primary" bindtap="createRoom">创建房间</button>
+    <button class="btn-secondary" bindtap="showJoinDialog">加入房间</button>
+  </view>
+
+  <view class="recent-section" wx:if="{{recentRooms.length > 0}}">
+    <text class="section-title">最近加入的房间</text>
+    <view class="room-list">
+      <view 
+        class="room-item" 
+        wx:for="{{recentRooms}}" 
+        wx:key="code"
+        bindtap="joinRoomById"
+        data-room="{{item}}"
+      >
+        <view class="room-info">
+          <text class="room-name">{{item.name}}</text>
+          <text class="room-code">邀请码: {{item.code}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="tips-section">
+    <text class="tips-title">使用说明</text>
+    <text class="tips-item">1. 点击"创建房间"创建新房间</text>
+    <text class="tips-item">2. 将邀请码分享给朋友</text>
+    <text class="tips-item">3. 朋友输入邀请码加入房间</text>
+    <text class="tips-item">4. 房间内可以管理资金和茶水费用</text>
+  </view>
+
+  <view class="modal" wx:if="{{showModal}}">
+    <view class="modal-mask" bindtap="hideModal"></view>
+    <view class="modal-content">
+      <text class="modal-title">加入房间</text>
+      <input 
+        class="input-field" 
+        placeholder="请输入6位邀请码" 
+        maxlength="6" 
+        bindinput="onCodeInput"
+        value="{{joinCode}}"
+      />
+      <view class="modal-actions">
+        <button class="btn-cancel" bindtap="hideModal">取消</button>
+        <button class="btn-confirm" bindtap="confirmJoin">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

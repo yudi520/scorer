@@ -1,0 +1,40 @@
+<view class="container">
+  <view class="form-section">
+    <view class="form-item">
+      <text class="label">房间名称</text>
+      <input 
+        class="input-field" 
+        placeholder="请输入房间名称" 
+        maxlength="20"
+        bindinput="onNameInput"
+        value="{{roomName}}"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">初始金额</text>
+      <input 
+        class="input-field" 
+        type="number"
+        placeholder="每人初始金额（元）" 
+        bindinput="onBalanceInput"
+        value="{{initialBalance}}"
+      />
+    </view>
+
+    <view class="form-item">
+      <text class="label">您的昵称</text>
+      <input 
+        class="input-field" 
+        placeholder="请输入昵称" 
+        maxlength="10"
+        bindinput="onNicknameInput"
+        value="{{nickname}}"
+      />
+    </view>
+  </view>
+
+  <view class="btn-section">
+    <button class="btn-primary" bindtap="createRoom">创建房间</button>
+  </view>
+</view>

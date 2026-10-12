@@ -1,0 +1,51 @@
+.container {
+  padding: 40rpx 30rpx;
+}
+
+.form-section {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 40rpx;
+}
+
+.form-item {
+  margin-bottom: 30rpx;
+}
+
+.form-item:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 15rpx;
+  font-weight: 500;
+}
+
+.input-field {
+  background-color: #f5f5f5;
+  border-radius: 10rpx;
+  padding: 20rpx 25rpx;
+  font-size: 30rpx;
+  border: 1rpx solid transparent;
+}
+
+.input-field:focus {
+  border-color: #1890ff;
+}
+
+.btn-section {
+  padding: 0 20rpx;
+}
+
+.btn-primary {
+  background-color: #1890ff;
+  color: #fff;
+  border-radius: 50rpx;
+  padding: 25rpx 0;
+  font-size: 34rpx;
+  border: none;
+}
